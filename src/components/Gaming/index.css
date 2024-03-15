@@ -1,0 +1,21 @@
+.eachGamingcontainer {
+  height: 200px;
+}
+
+.gamingthumbnailsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gamingthumbnailsContainer li {
+  width: 200px;
+}
+
+.containerWithLeftRightSubContainers {
+  display: flex;
+}
+
+.rightContentContainer {
+  width: 70%;
+}

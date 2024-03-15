@@ -1,0 +1,16 @@
+.eachSavedVideoContainer {
+  display: flex;
+}
+
+.savedVideothumbnail {
+  width: 30%;
+}
+
+.detailsContainer {
+  width: 70%;
+}
+
+.noSavedVideosImage {
+  height: 100px;
+  width: 100px;
+}

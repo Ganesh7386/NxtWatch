@@ -1,0 +1,33 @@
+.logoStyling {
+  height: 60px;
+  width: 100px;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.profileImgStyling {
+  height: 30px;
+  width: 30px;
+}
+
+.headerRightSideDetails {
+  display: flex;
+  list-style-type: none;
+}
+
+.headerRightSideDetails li:nth-child(1) {
+  margin-left: 10px;
+}
+
+.headerRightSideDetails li:nth-child(2) {
+  margin-left: 10px;
+}
+
+.headerRightSideDetails li:nth-child(3) {
+  margin-left: 10px;
+  margin-right: 20px;
+}

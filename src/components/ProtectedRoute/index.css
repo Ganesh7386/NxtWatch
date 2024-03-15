@@ -1,0 +1,12 @@
+.containerWithLeftRightSubContainers {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftContainer {
+  width: 25%;
+}
+
+.rightContentContainer {
+  width: 80%;
+}

@@ -1,0 +1,9 @@
+.trendingPageContainer {
+  width: 100%;
+}
+
+.trendingVideosContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

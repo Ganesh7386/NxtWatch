@@ -1,0 +1,11 @@
+.logoStyling {
+  height: 50px;
+  width: 100px;
+}
+
+.loginBtnStyling {
+  background-color: #3b82f6;
+  color: #ffffff;
+  height: 30px;
+  width: 120px;
+}

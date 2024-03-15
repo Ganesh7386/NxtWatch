@@ -1,0 +1,26 @@
+.eachVideoDetailsRouteContainer {
+  padding: 10px;
+}
+
+.likeUnlikeviewCountEtcContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ulListStylingBottom {
+  list-style-type: none;
+  display: flex;
+}
+.ulListStylingBottom li {
+  margin-right: 5px;
+}
+
+.channelImageStyling {
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+}
+.channelDetailsContainer {
+  display: flex;
+}
