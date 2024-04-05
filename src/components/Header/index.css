@@ -2,32 +2,83 @@
   height: 60px;
   width: 100px;
 }
-.headerContainer {
+
+.rightSideHeaderContainerTabs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.profileImgStyling {
-  height: 30px;
-  width: 30px;
-}
-
-.headerRightSideDetails {
-  display: flex;
   list-style-type: none;
 }
-
-.headerRightSideDetails li:nth-child(1) {
-  margin-left: 10px;
+.rightSideTabsInExtraSmallDevices {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.popupContainer {
+  position: relative;
+  top: 50%;
+  left: 45%;
+  height: 200px;
+  width: 200px;
+  background-color: black;
 }
 
-.headerRightSideDetails li:nth-child(2) {
-  margin-left: 10px;
+@media (min-width: 769px) {
+  .rightSideTabsInExtraSmallDevices {
+    display: none;
+  }
+  .rightSideHeaderContainerTabs {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  }
 }
 
-.headerRightSideDetails li:nth-child(3) {
-  margin-left: 10px;
-  margin-right: 20px;
+@media (min-width: 0px) and (max-width: 768px) {
+  .rightSideTabsInExtraSmallDevices {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  }
+  .rightSideHeaderContainerTabs {
+    display: none;
+  }
+  .dropDownContainer {
+    width: 100%; /* Adjust width as needed */
+    overflow: hidden; /* Hide overflow content */
+    transition: height 5s ease; /* Smooth transition for height changes */
+    position: fixed;
+    z-index: 2;
+    top: 100px;
+    background-color: black;
+    color: white;
+  }
+
+  /* Active state styles */
+  .dropDownContainer.active {
+    height: auto; /* Allow container to expand to fit content */
+  }
+
+  /* Dropdown content styles */
+  .dropDownContainer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropDownContainer li {
+    margin-bottom: 10px; /* Adjust spacing between items */
+  }
+
+  .dropDownContainer a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+
+  /* Hover effect on dropdown items */
+  .dropDownContainer a:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
 }

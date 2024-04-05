@@ -14,9 +14,11 @@ import './index.css'
 
 const OverAllRightContainerBgStyleDarkMode = styled.div`
   background-color: #0f0f0f;
+  width: 100%;
 `
 const OverAllRightContainerBgStylingLightMode = styled.div`
   background-color: #f9f9f9;
+  width: 100%;
 `
 
 class Trending extends Component {

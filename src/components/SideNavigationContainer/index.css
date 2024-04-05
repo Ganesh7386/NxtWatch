@@ -1,4 +1,11 @@
 .leftNavContainer {
   width: 20%;
   align-self: stretch;
+  position: relative;
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .leftNavContainer {
+    display: none;
+  }
 }

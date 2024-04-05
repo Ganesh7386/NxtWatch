@@ -10,9 +10,11 @@ import './index.css'
 
 const OverAllRightContainerBgStyleDarkMode = styled.div`
   background-color: #181818;
+  width: 80%;
 `
 const OverAllRightContainerBgStylingLightMode = styled.div`
   background-color: #f9f9f9;
+  width: 80%;
 `
 
 const ProtectedRoute = props => {

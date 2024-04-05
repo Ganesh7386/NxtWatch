@@ -16,9 +16,11 @@ const BannerStyledContainer = styled.div`
 
 const OverAllRightContainerBgStyleDarkMode = styled.div`
   background-color: #181818;
+  width: 100%;
 `
 const OverAllRightContainerBgStylingLightMode = styled.div`
   background-color: #f9f9f9;
+  width: 100%;
 `
 
 /* import {
