@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import ReactPlayer from 'react-player'
 import Loader from 'react-loader-spinner'
 import styled from 'styled-components'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import SavedVideosContext from '../SavedVideosContext/index'
 /* import {
   DarkThemeModeStyling,

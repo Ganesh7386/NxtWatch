@@ -1,9 +1,9 @@
-import {Link, Redirect, withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {useContext, useState} from 'react'
 import styled from 'styled-components'
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
-import LightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
 const ContainerStylingAccrdToGivenParams = styled.div`
@@ -49,7 +49,7 @@ const leftNavigationButtons = [
 ]
 
 function Header(props) {
-  const contextValue = useContext(LightDarkModeContext)
+  const contextValue = useContext(lightDarkModeContext)
   const [isDropDownActive, setDropDownActiveness] = useState(false)
   console.log(contextValue)
   const handleLogOut = () => {
@@ -80,6 +80,7 @@ function Header(props) {
             <button
               type="button"
               onClick={() => {
+                console.log(contextValue)
                 contextValue.changeMode()
               }}
             >

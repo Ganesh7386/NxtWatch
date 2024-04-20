@@ -1,25 +1,31 @@
 import {Route, withRouter, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import styled from 'styled-components'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import Header from '../Header/index'
 import SideNavBar from '../SideNavigationContainer/index'
 import SavedVideosContext from '../SavedVideosContext/index'
 import './index.css'
 
-const OverAllRightContainerBgStyleDarkMode = styled.div`
-  background-color: #181818;
-  width: 80%;
-`
-const OverAllRightContainerBgStylingLightMode = styled.div`
-  background-color: #f9f9f9;
+// const OverAllRightContainerBgStyleDarkMode = styled.div`
+//   background-color: #181818;
+//   width: 80%;
+// `
+// const OverAllRightContainerBgStylingLightMode = styled.div`
+//   background-color: #f9f9f9;
+//   width: 80%;
+// `
+
+const ChangeThemeAccrdToContext = styled.div`
+  background-color: ${({inLightMode}) => (inLightMode ? '#f9f9f9' : '#181818')};
   width: 80%;
 `
 
 const ProtectedRoute = props => {
   const token = Cookies.get('jwt_token')
   const [savedVideosList, pushVideoIntoSavedList] = useState([])
+  const themeModeContext = useContext(lightDarkModeContext)
   // const [appear, setAppear] = useState(false)
 
   const handleSavingVideos = eachVideoDetailsObj => {
@@ -40,40 +46,22 @@ const ProtectedRoute = props => {
     </Popup>
   )  */
 
-  const renderRightSideContainerAccrdToContext = () => (
-    <lightDarkModeContext.Consumer>
-      {value => {
-        const {inLightMode} = value
-        const {path} = props
-        if (inLightMode) {
-          return (
-            <OverAllRightContainerBgStylingLightMode
-              data-testid={path}
-              className="rightContentContainer"
-            >
-              <SavedVideosContext.Provider
-                value={{savedVideosList, pushVideo: handleSavingVideos}}
-              >
-                <Route {...props} />
-              </SavedVideosContext.Provider>
-            </OverAllRightContainerBgStylingLightMode>
-          )
-        }
-        return (
-          <OverAllRightContainerBgStyleDarkMode
-            data-testid={path}
-            className="rightContentContainer"
-          >
-            <SavedVideosContext.Provider
-              value={{savedVideosList, pushVideo: handleSavingVideos}}
-            >
-              <Route {...props} />
-            </SavedVideosContext.Provider>
-          </OverAllRightContainerBgStyleDarkMode>
-        )
-      }}
-    </lightDarkModeContext.Consumer>
-  )
+  const renderRightSideContainerAccrdToContext = () => {
+    const {path} = props
+    return (
+      <ChangeThemeAccrdToContext
+        inLightMode={themeModeContext.inLightMode}
+        data-testid={path}
+        className="rightContentContainer"
+      >
+        <SavedVideosContext.Provider
+          value={{savedVideosList, pushVideo: handleSavingVideos}}
+        >
+          <Route {...props} />
+        </SavedVideosContext.Provider>
+      </ChangeThemeAccrdToContext>
+    )
+  }
 
   const renderOverAllHomeContainer = () => (
     <div className="overAllHomeContainerUi">

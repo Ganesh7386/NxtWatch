@@ -12,15 +12,18 @@
   width: 25%;
   flex-shrink: 1;
 }
-
 .rightContentContainer {
+  width: 100%;
+}
+
+/*.rightContentContainer {
   width: 80%;
   flex-grow: 2;
   flex-shrink: 2;
-}
+}*/
 
-@media (min-width: 0px) and (max-width: 768px) {
+/* @media (min-width: 0px) and (max-width: 768px) {
   .rightContentContainer {
     width: 100%;
   }
-}
+} */

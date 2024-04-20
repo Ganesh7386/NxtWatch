@@ -4,7 +4,7 @@ import {
   HeaderAndSideNavBarDarkModeBackgroundStyling,
   HeaderAndSideNavBarLightModeBackgroundStyling,
 } from '../StyledComponents/index'
-import lightDarkModeContext from '../ThemeModeContext'
+import {lightDarkModeContext} from '../ThemeModeContext'
 import './index.css'
 
 const leftNavigationButtons = [
@@ -56,7 +56,7 @@ class SideNavBar extends Component {
       <div className="leftNavContainer">
         <ul style={{display: 'flex', flexDirection: 'column'}}>
           {leftNavigationButtons.map(eachObj => (
-            <li>
+            <li key={eachObj.id}>
               <Link
                 key={eachObj.id}
                 to={`/${eachObj.url}`}

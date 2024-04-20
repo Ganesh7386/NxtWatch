@@ -2,7 +2,7 @@ import {Component} from 'react'
 import styled from 'styled-components'
 import SavedVideosContext from '../SavedVideosContext/index'
 import EachSavedVideoComp from './EachSavedVideoStructureComp'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
 const LightThemeStyling = styled.div`

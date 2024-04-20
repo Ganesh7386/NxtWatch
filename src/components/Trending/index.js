@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 import styled from 'styled-components'
 import EachVideoThumbnail from '../EachVideoThumbnail/index'
 import {modifyKeysOfVideoDetails} from '../Home/index'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
 /* import {
@@ -12,12 +12,17 @@ import './index.css'
   HomeContainerBGStylingInLightMode,
 } from '../StyledComponents/index'  */
 
-const OverAllRightContainerBgStyleDarkMode = styled.div`
-  background-color: #0f0f0f;
-  width: 100%;
-`
-const OverAllRightContainerBgStylingLightMode = styled.div`
-  background-color: #f9f9f9;
+// const OverAllRightContainerBgStyleDarkMode = styled.div`
+//   background-color: #0f0f0f;
+//   width: 100%;
+// `
+// const OverAllRightContainerBgStylingLightMode = styled.div`
+//   background-color: #f9f9f9;
+//   width: 100%;
+// `
+
+const ChangeThemeAccrdToContext = styled.div`
+  background-color: ${({inLightMode}) => (inLightMode ? '#f9f9f9' : '#181818')};
   width: 100%;
 `
 
@@ -119,23 +124,14 @@ class Trending extends Component {
     <lightDarkModeContext.Consumer>
       {value => {
         const {inLightMode} = value
-        if (inLightMode) {
-          return (
-            <OverAllRightContainerBgStylingLightMode
-              data-testid="trending"
-              className="rightContentContainer"
-            >
-              {this.renderUiAccrdToErrorStatus()}
-            </OverAllRightContainerBgStylingLightMode>
-          )
-        }
         return (
-          <OverAllRightContainerBgStyleDarkMode
+          <ChangeThemeAccrdToContext
+            inLightMode={inLightMode}
             data-testid="trending"
             className="rightContentContainer"
           >
             {this.renderUiAccrdToErrorStatus()}
-          </OverAllRightContainerBgStyleDarkMode>
+          </ChangeThemeAccrdToContext>
         )
       }}
     </lightDarkModeContext.Consumer>

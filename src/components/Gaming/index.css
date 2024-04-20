@@ -16,7 +16,3 @@
 .containerWithLeftRightSubContainers {
   display: flex;
 }
-
-.rightContentContainer {
-  width: 70%;
-}

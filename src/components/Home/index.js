@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom'
 import styled from 'styled-components'
 import Loader from 'react-loader-spinner'
 import EachVideoThumbnail from '../EachVideoThumbnail/index'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
 const BannerStyledContainer = styled.div`
@@ -14,12 +14,16 @@ const BannerStyledContainer = styled.div`
   margin-bottom: 20px;
 `
 
-const OverAllRightContainerBgStyleDarkMode = styled.div`
-  background-color: #181818;
-  width: 100%;
-`
-const OverAllRightContainerBgStylingLightMode = styled.div`
-  background-color: #f9f9f9;
+// const OverAllRightContainerBgStyleDarkMode = styled.div`
+//   background-color: #181818;
+//   width: 100%;
+// `
+// const OverAllRightContainerBgStylingLightMode = styled.div`
+//   background-color: #f9f9f9;
+//   width: 100%;
+// `
+const ChangeThemeAccrdToContext = styled.div`
+  background-color: ${({inLightMode}) => (inLightMode ? '#f9f9f9' : '#181818')};
   width: 100%;
 `
 
@@ -113,7 +117,7 @@ export class Home extends Component {
       const modifiedKeysOfEachVideoDetails = modifyKeysOfVideoDetails(
         allVideosListFromVideosApiPromise.videos,
       )
-      // console.log(modifiedKeysOfEachVideoDetails)
+      console.log(modifiedKeysOfEachVideoDetails)
       this.setState({
         videosList: modifiedKeysOfEachVideoDetails,
         loading: 'false',
@@ -173,17 +177,10 @@ export class Home extends Component {
             search
           </button>
         </div>
-        <ul>
-          <div className="videosListContainer" data-testid="home">
-            <ul className="videosListContainer">
-              {videosList.map(eachObj => (
-                <EachVideoThumbnail
-                  key={eachObj.id}
-                  eachVideoDetails={eachObj}
-                />
-              ))}
-            </ul>
-          </div>
+        <ul className="videosListContainer" data-testid="home">
+          {videosList.map(eachObj => (
+            <EachVideoThumbnail key={eachObj.id} eachVideoDetails={eachObj} />
+          ))}
         </ul>
       </>
     )
@@ -243,23 +240,21 @@ export class Home extends Component {
     <lightDarkModeContext.Consumer>
       {value => {
         const {inLightMode} = value
-        if (inLightMode) {
-          return (
-            <OverAllRightContainerBgStylingLightMode className="rightContentContainer">
-              {this.renderHomeRightSideContainer()}
-            </OverAllRightContainerBgStylingLightMode>
-          )
-        }
         return (
-          <OverAllRightContainerBgStyleDarkMode className="rightContentContainer">
+          <ChangeThemeAccrdToContext
+            inLightMode={inLightMode}
+            className="rightContentContainer"
+          >
             {this.renderHomeRightSideContainer()}
-          </OverAllRightContainerBgStyleDarkMode>
+          </ChangeThemeAccrdToContext>
         )
       }}
     </lightDarkModeContext.Consumer>
   )
 
   render() {
+    // const {videosList} = this.state
+    // console.log(videosList)
     return this.renderRightSideContainerAccrdToContext()
   }
 }

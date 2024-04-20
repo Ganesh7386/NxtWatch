@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
 class EachVideoThumbnail extends Component {

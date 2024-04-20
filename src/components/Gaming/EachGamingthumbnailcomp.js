@@ -1,24 +1,33 @@
+import {useContext} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import lightDarkModeContext from '../ThemeModeContext/index'
+import {lightDarkModeContext} from '../ThemeModeContext/index'
 import './index.css'
 
-const LightModeContainer = styled.li`
-  color: black;
-`
-const DarkModeContainer = styled.li`
-  color: white;
+// const LightModeContainer = styled.li`
+//   color: black;
+// `
+// const DarkModeContainer = styled.li`
+//   color: white;
+// `
+
+const ChangeThemeAccrdToContext = styled.li`
+  color: ${({inLightMode}) => (inLightMode ? 'black' : 'white')};
 `
 
 function EachGamingThumbnail(props) {
   const {eachVideoDetails} = props
-  console.log(eachVideoDetails)
+  const themeContext = useContext(lightDarkModeContext)
+  // console.log(eachVideoDetails)
   const renderEachGamingThumbnailContainer = () => (
     <Link
       to={`/videos/${eachVideoDetails.id}`}
       style={{color: 'inherit', textDecoration: 'none'}}
     >
-      <li className="eachGamingcontainer">
+      <ChangeThemeAccrdToContext
+        inLightMode={themeContext.inLightMode}
+        className="eachGamingcontainer"
+      >
         <img
           src={eachVideoDetails.thumbnailUrl}
           alt="video thumbnail"
@@ -28,29 +37,12 @@ function EachGamingThumbnail(props) {
           <p>{eachVideoDetails.title}</p>
           <p>{eachVideoDetails.viewCount} Watching worldwide</p>
         </div>
-      </li>
+      </ChangeThemeAccrdToContext>
     </Link>
   )
 
-  const renderEachGamingThumbnailContainerAccdContext = () => (
-    <lightDarkModeContext.Consumer>
-      {value => {
-        const {inLightMode} = value
-        if (inLightMode) {
-          return (
-            <LightModeContainer>
-              {renderEachGamingThumbnailContainer()}
-            </LightModeContainer>
-          )
-        }
-        return (
-          <DarkModeContainer>
-            {renderEachGamingThumbnailContainer()}
-          </DarkModeContainer>
-        )
-      }}
-    </lightDarkModeContext.Consumer>
-  )
+  const renderEachGamingThumbnailContainerAccdContext = () =>
+    renderEachGamingThumbnailContainer()
 
   return renderEachGamingThumbnailContainerAccdContext()
 }
