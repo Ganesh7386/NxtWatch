@@ -1,10 +1,6 @@
 import {Component} from 'react'
 import styled from 'styled-components'
 import {withRouter, Link} from 'react-router-dom'
-import {
-  HeaderAndSideNavBarDarkModeBackgroundStyling,
-  HeaderAndSideNavBarLightModeBackgroundStyling,
-} from '../StyledComponents/index'
 import {lightDarkModeContext} from '../ThemeModeContext'
 import './index.css'
 
@@ -34,7 +30,14 @@ const leftNavigationButtons = [
 const SideNavBarBackgroundColor = styled.div`
   background-color: ${({inLightMode}) => (inLightMode ? '#ffffff' : '#313131')};
   color: ${({inLightMode}) => (inLightMode ? 'black' : 'white')};
-  width: 20%;
+  @media (min-width: 0px) and (max-width: 768px) {
+    display: none;
+  }
+  width : 20%;
+  height : 100%;
+  position : fixed;
+  left : 0px;
+}
 `
 
 const EachSideNavBarNavElementbtnStyling = styled.button`

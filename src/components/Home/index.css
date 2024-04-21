@@ -3,7 +3,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
+  width: 100%;
+  justify-content: center;
+  column-gap: 15px;
 }
+
 .homeRouteContainer {
   width: 100%;
   height: 100%;

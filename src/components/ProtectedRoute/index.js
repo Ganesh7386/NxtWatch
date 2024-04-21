@@ -19,7 +19,17 @@ import './index.css'
 
 const ChangeThemeAccrdToContext = styled.div`
   background-color: ${({inLightMode}) => (inLightMode ? '#f9f9f9' : '#181818')};
-  width: 80%;
+  position : relative;
+  left : 20%;
+  @media (min-width: 0px) and (max-width: 768px) {
+    width: 100%;
+    left : 0%;
+  };
+  @media (min-width: 769px) {
+    width: 80%;
+  }
+}
+}
 `
 
 const ProtectedRoute = props => {
