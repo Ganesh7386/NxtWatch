@@ -22,8 +22,14 @@
   flex-shrink: 2;
 }*/
 
-/* @media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 768px) {
   .rightContentContainer {
     width: 100%;
   }
-} */
+}
+
+@media (min-width: 769px) {
+  .rightContentContainer {
+    width: 80%;
+  }
+}

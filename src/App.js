@@ -9,10 +9,7 @@ import Gaming from './components/Gaming/index'
 import SavedVideos from './components/SavedVideos/index'
 import ProtectedRoute from './components/ProtectedRoute/index'
 import EachVideoDetails from './components/EachVideoDetails/index'
-import {
-  LightDarkModeContextProvider,
-  lightDarkModeContext,
-} from './components/ThemeModeContext/index'
+import {LightDarkModeContextProvider} from './components/ThemeModeContext/index'
 // import SavedVideosContext from './components/SavedVideosContext/index'
 
 // Replace your code here

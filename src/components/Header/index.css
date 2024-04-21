@@ -13,14 +13,58 @@
   flex-direction: row;
   list-style-type: none;
 }
-.popupContainer {
+/* .popupContainer {
   position: relative;
   top: 50%;
   left: 45%;
   height: 200px;
   width: 200px;
   background-color: black;
+} */
+
+.themeButtonStyling {
+  height: 40px;
+  width: 40px;
+  border: black solid 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 3px;
 }
+.headerIconStyling {
+  height: 90%;
+  width: 90%;
+}
+
+.loginLogoutBtnStyling {
+  height: 40px;
+  width: 70px;
+  border: blue 3px solid;
+  color: blue;
+  background-color: white;
+}
+
+/* .popupContainerForLogout {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 70%;
+  background-color: pink;
+}
+
+.popupContainerForLogout button {
+  height: 40px;
+  width: 80px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10%;
+} */
 
 @media (min-width: 769px) {
   .rightSideTabsInExtraSmallDevices {
@@ -30,6 +74,27 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    column-gap: 20px;
+  }
+  .popupContainerForLogout {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 5%;
+    background-color: pink;
+    padding: 20px;
+  }
+
+  .popupContainerForLogout button {
+    height: 40px;
+    width: 80px;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10%;
   }
 }
 
@@ -38,6 +103,7 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    column-gap: 10px;
   }
   .rightSideHeaderContainerTabs {
     display: none;
@@ -80,5 +146,27 @@
   /* Hover effect on dropdown items */
   .dropDownContainer a:hover {
     background-color: #f0f0f0; /* Change background color on hover */
+  }
+
+  .popupContainerForLogout {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    position: relative;
+    left: 5%;
+    padding: 20px;
+  }
+
+  .popupContainerForLogout button {
+    height: 60px;
+    width: 70%;
+    align-self: center;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
   }
 }
