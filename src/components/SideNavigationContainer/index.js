@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import styled from 'styled-components'
 import {withRouter, Link} from 'react-router-dom'
 import {
   HeaderAndSideNavBarDarkModeBackgroundStyling,
@@ -30,31 +31,57 @@ const leftNavigationButtons = [
   },
 ]
 
+const SideNavBarBackgroundColor = styled.div`
+  background-color: ${({inLightMode}) => (inLightMode ? '#ffffff' : '#313131')};
+  color: ${({inLightMode}) => (inLightMode ? 'black' : 'white')};
+  width: 20%;
+`
+
+const EachSideNavBarNavElementbtnStyling = styled.button`
+  height: 40px;
+  width: 60%;
+  padding: 4px;
+  border: 3px solid black;
+  border-radius: 50px;
+  background-color: ${({inLightMode}) => (inLightMode ? 'black' : 'white')};
+  color: ${({inLightMode}) => (inLightMode ? 'white' : 'black')};
+  &:hover {
+    background-color: ${({inLightMode}) => (inLightMode ? 'black' : 'grey')};
+  }
+`
+
 class SideNavBar extends Component {
   renderSideBarAccdToContextValue = () => (
     <lightDarkModeContext.Consumer>
       {value => {
         const {inLightMode} = value
-        if (inLightMode) {
-          return (
-            <HeaderAndSideNavBarLightModeBackgroundStyling className="leftNavContainer">
-              {this.renderSideNavBarui()}
-            </HeaderAndSideNavBarLightModeBackgroundStyling>
-          )
-        }
         return (
-          <HeaderAndSideNavBarDarkModeBackgroundStyling className="leftNavContainer">
+          <SideNavBarBackgroundColor inLightMode={inLightMode}>
             {this.renderSideNavBarui()}
-          </HeaderAndSideNavBarDarkModeBackgroundStyling>
+          </SideNavBarBackgroundColor>
         )
       }}
     </lightDarkModeContext.Consumer>
   )
 
+  EachLeftSideNavTabs = props => (
+    <EachSideNavBarNavElementbtnStyling type="button">
+      {props.label}
+    </EachSideNavBarNavElementbtnStyling>
+  )
+
   renderSideNavBarui = () => (
     <>
       <div className="leftNavContainer">
-        <ul style={{display: 'flex', flexDirection: 'column'}}>
+        <ul
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            rowGap: '10px',
+            listStyleType: 'none',
+            width: '100%',
+          }}
+        >
           {leftNavigationButtons.map(eachObj => (
             <li key={eachObj.id}>
               <Link
@@ -62,7 +89,7 @@ class SideNavBar extends Component {
                 to={`/${eachObj.url}`}
                 style={{color: 'inherit'}}
               >
-                {eachObj.label}
+                <this.EachLeftSideNavTabs label={eachObj.label} />
               </Link>
             </li>
           ))}
