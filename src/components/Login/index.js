@@ -65,35 +65,47 @@ class Login extends Component {
       return <Redirect to="/" />
     }
     return (
-      <form onSubmit={this.handleSubmit}>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-          alt="website logo"
-          className="logoStyling"
-        />
-        <label htmlFor="username">USERNAME</label>
-        <input type="text" id="username" onChange={this.handleTakingUsername} />
-        <br />
-        <label htmlFor="PswDInput">PASSWORD</label>
-        <input
-          type={showPswd ? 'text' : 'password'}
-          id="PswDInput"
-          onChange={this.handleTakingPassword}
-        />
-        <br />
-        <input
-          id="showPassword"
-          type="checkbox"
-          checked={showPswd}
-          onChange={this.handleShowPswd}
-        />
-        <label htmlFor="showPassword">Show Password</label>
-        <br />
-        <button className="loginBtnStyling" type="submit">
-          Login
-        </button>
-        <p>{errorMsg}</p>
-      </form>
+      <div className="loginPageWholeContainer">
+        <form className="formContainer" onSubmit={this.handleSubmit}>
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+            alt="website logo"
+            className="logoStyling"
+          />
+          <div className="eachFillingContainerWithLabel">
+            <label htmlFor="username">USERNAME</label>
+            <input
+              type="text"
+              id="username"
+              onChange={this.handleTakingUsername}
+              placeholder="username"
+            />
+          </div>
+          <div className="eachFillingContainerWithLabel">
+            <label htmlFor="PswDInput">PASSWORD</label>
+            <input
+              type={showPswd ? 'text' : 'password'}
+              id="PswDInput"
+              onChange={this.handleTakingPassword}
+              placeholder="password"
+            />
+          </div>
+          <div className="showPasswordContainerWithInputAndLabel">
+            <input
+              id="showPassword"
+              type="checkbox"
+              checked={showPswd}
+              onChange={this.handleShowPswd}
+            />
+            <label htmlFor="showPassword">Show Password</label>
+          </div>
+
+          <button className="loginBtnStyling" type="submit">
+            Login
+          </button>
+          <p>{errorMsg}</p>
+        </form>
+      </div>
     )
   }
 }
