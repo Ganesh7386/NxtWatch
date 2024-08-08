@@ -92,7 +92,9 @@ class SideNavBar extends Component {
                 to={`/${eachObj.url}`}
                 style={{color: 'inherit'}}
               >
-                <this.EachLeftSideNavTabs label={eachObj.label} />
+                <EachSideNavBarNavElementbtnStyling type="button">
+                  {eachObj.label}
+                </EachSideNavBarNavElementbtnStyling>
               </Link>
             </li>
           ))}
